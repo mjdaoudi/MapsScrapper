@@ -1,4 +1,5 @@
 import logging
+import os
 from itertools import product
 
 import numpy as np
@@ -11,9 +12,19 @@ logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 )
 
-CHROME_DRIVER_PATH = "/Users/mjdaoudi/Development/MapsScrapper/chromedriver"
+CHROME_DRIVER_PATH = "chromedriver"
+
 
 def main() -> None:
+    data_folder = "data"
+    # Check if the data folder exists
+    if not os.path.exists(data_folder):
+        # If it doesn't exist, create the data folder
+        os.mkdir(data_folder)
+        logging.info(f"Data folder '{data_folder}' created successfully.")
+    else:
+        logging.info(f"Data folder '{data_folder}' already exists.")
+
     url = "https://www.google.com/maps"
     leads = []
     regions = ["brussels"]
@@ -21,7 +32,7 @@ def main() -> None:
     for region, business_type in product(regions, business_types):
         logging.info(f"Scrapping {business_type} in {region}")
         try:
-            Scrapper = WebDriver(CHROME_DRIVER_PATH=CHROME_DRIVER_PATH)
+            Scrapper = WebDriver(CHROME_DRIVER_PATH=os.path.abspath(CHROME_DRIVER_PATH))
             data = Scrapper.scrape(url, f"{business_type} in {region}")
             data = list(
                 map(
