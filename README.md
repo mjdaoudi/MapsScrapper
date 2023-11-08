@@ -1,4 +1,4 @@
-# **README for Web Scraping and Email Extraction Script**
+# **Web Scraping and Email Extraction Script for Maps**
 
 This README provides information and instructions for the Python script designed to scrape data from maps and extract email addresses from scrapped websites. The script is intended for users who want to collect business information and associated email addresses from a specific website and save the results in a CSV file. The script uses Python, the Pandas library for data manipulation, and a custom library for web scraping and email extraction.
 
@@ -10,17 +10,9 @@ Before using the script, make sure you have the following prerequisites:
 
 2. Required Python libraries: You need to install the following Python libraries if you haven't already. You can install them using pip, a package manager for Python.
 
-   - `numpy`: A library for numerical computing.
-
-     ```
-     pip install numpy
-     ```
-
-   - `pandas`: A data manipulation library.
-
-     ```
-     pip install pandas
-     ```
+   ```
+   pip install requirements.txt
+   ```
 
 ## **Usage**
 
@@ -28,11 +20,9 @@ Follow these steps to use the script:
 
 1. Import the necessary libraries and set up the logging level in the script.
 
-2. Define the `url` variable with the website URL you want to scrape data from.
+2. Specify the `regions` and `business_types` as the regions and business types you want to search for. The script will generate combinations of these values and scrape data for each combination.
 
-3. Specify the `regions` and `business_types` as the regions and business types you want to search for. The script will generate combinations of these values and scrape data for each combination.
-
-4. Run the `main()` function by checking if the script is the main module. This function will perform the following steps:
+3. Run the `main()` function by checking if the script is the main module. This function will perform the following steps:
 
    a. Start the web scraping process for each combination of `regions` and `business_types`.
 
@@ -44,11 +34,7 @@ Follow these steps to use the script:
 
    e. Export the final data, including email addresses, to a CSV file named "adresses_complete.csv."
 
-5. Execute the script using the command `python your_script_name.py`.
-
-## **Custom Libraries**
-
-Please make sure the custom libraries "Mailanalyzer" and "Scrapper" are available in your project. You might need to create or obtain them separately.
+4. Execute the script using the command `python main.py`.
 
 ## **Logging**
 
