@@ -20,7 +20,7 @@ Follow these steps to use the script:
 
 1. Import the necessary libraries and set up the logging level in the script.
 
-2. Specify the `regions` and `business_types` as the regions and business types you want to search for. The script will generate combinations of these values and scrape data for each combination.
+2. Specify the `regions` and `business_types` as the regions and business types you want to search for. The script will generate combinations of these values and scrape data for each combination. Download the right chromedriver according to your system and specify the path in the `main()`.
 
 3. Run the `main()` function by checking if the script is the main module. This function will perform the following steps:
 
@@ -35,6 +35,10 @@ Follow these steps to use the script:
    e. Export the final data, including email addresses, to a CSV file named "adresses_complete.csv."
 
 4. Execute the script using the command `python main.py`.
+
+## **Drivers**
+
+**Selenium uses Chromedrivers in the background to interact with chrome. Please [download](https://googlechromelabs.github.io/chrome-for-testing/) the right version according to your system.**
 
 ## **Logging**
 

@@ -18,10 +18,10 @@ logging.basicConfig(
 class WebDriver:
     adresses = []
 
-    def __init__(self):
-        self.PATH = "/Users/mjdaoudi/Development/MapsScrapper/chromedriver"
+    def __init__(self, CHROME_DRIVER_PATH: str):
+        self.PATH = CHROME_DRIVER_PATH
         self.options = Options()
-        #self.options.add_argument("--headless")
+        # self.options.add_argument("--headless")
         self.service = Service(executable_path=self.PATH)
         self.driver = webdriver.Chrome(service=self.service, options=self.options)
 
