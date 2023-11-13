@@ -32,7 +32,9 @@ def main() -> None:
     for region, business_type in product(regions, business_types):
         logging.info(f"Scrapping {business_type} in {region}")
         try:
-            Scrapper = WebDriver(CHROME_DRIVER_PATH=os.path.abspath(CHROME_DRIVER_PATH))
+            Scrapper = WebDriver(
+                CHROME_DRIVER_PATH=os.path.abspath(CHROME_DRIVER_PATH), 
+                headless=False)
             data = Scrapper.scrape(url, f"{business_type} in {region}")
             data = list(
                 map(
